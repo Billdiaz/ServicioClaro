@@ -1,0 +1,102 @@
+﻿@model IEnumerable<ServiciosClaro.Productos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="titulo">Productos</h2>
+<hr />
+
+
+
+
+    @if (User.IsInRole("Admin"))
+    {
+
+        <p>
+            @Html.ActionLink("Agregar Producto", "Create", null, new { @Class = "badge badge-danger", @Id = "linku" })
+        </p>
+
+    }
+
+<div class="row">
+
+    @*<table class="table">*@
+    @*<tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imagen)
+            </th>
+            <th></th>
+        </tr>*@
+
+    @foreach (var item in Model)
+    {
+
+
+        <div class="producto" id="producto">
+            <div class="col-12 imagen">
+                <img src="@Url.Action("MImagen", new { id = item.Id})" alt="@Html.DisplayFor(modelItem => item.Producto)" />
+            </div>
+            <div class="info ">
+                <div>
+                    <h3>@Html.DisplayFor(modelItem => item.Producto)</h3>
+                    <h5 class="precio">@Html.DisplayFor(modelItem => item.Precio)</h5>
+                </div>
+                <div>
+                    <p>@Html.DisplayFor(modelItem => item.Descripcion)</p>
+
+                </div>
+
+                <div>
+                    @Html.ActionLink("Mas detalles", "Details", new { id = item.Id })
+                </div>
+                @if (User.IsInRole("Admin"))
+                {
+                    <div>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @Class = "badge badge-primary" }) |
+                        @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @Class = "badge badge-success" }) |
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @Class = "badge badge-danger" })
+                    </div>
+                }
+            </div>
+        </div>
+
+
+        @*<tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Producto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cantidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Precio)
+                </td>
+                <td>
+                    <img src="@Url.Action("MImagen", new { id = item.Id})" />
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                </td>
+            </tr>*@
+    }
+
+    @*</table>*@
+</div>

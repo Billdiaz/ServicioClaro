@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <nav class="navbar navbar-expand navbar-dark bg-danger">
+
+
+        @Html.ActionLink("Servicios Claro", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <li class="nav-item active">
+                        @Html.ActionLink("Empleados", "Index", "Empleados", null, new { @Class = "nav-link" })
+                    </li>
+
+                }
+
+                else if (User.IsInRole("Cliente"))
+                {
+
+
+                }
+
+                else if (User.IsInRole("Empleado"))
+                {
+
+                }
+
+                else
+                {
+
+                }
+
+                <li class="nav-item active">
+                    @Html.ActionLink("Productos", "Index", "Productos", null, new { @Class = "nav-link" })
+                </li>
+
+                <li class="nav-item active">
+                    @Html.ActionLink("Servicios", "Index", "Tareas", null, new { @Class = "nav-link" })
+                </li>
+
+                <li class="nav-item active">
+                    @Html.ActionLink("Inicio", "Index", "Home", null, new { @Class = "nav-link" })
+                </li>
+                <li class="nav-item active">
+                    @Html.ActionLink("Acerca de", "About", "Home", null, new { @Class = "nav-link" })
+
+                </li>
+                <li class="nav-item active">
+                    @Html.ActionLink("Contacto", "Contact", "Home", null, new { @Class = "nav-link" })
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav">
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item active"><a class="nav-link">Hola - @User.Identity.Name!</a></li>
+
+                    <li class="nav-item active">@Html.ActionLink("Cerrar Sesión", "CerrarSesion", "Cuentas", null, new { @Class = "nav-link" })</li>
+
+                }
+                else
+                {
+                    <li class="nav-item active">
+                        @Html.ActionLink("Iniciar Sesión", "Login", "Cuentas", null, new { @Class = "nav-link" })
+                    </li>
+                    <li class="nav-item active">
+                        @Html.ActionLink("Registrarse", "Registrar", "Cuentas", null, new { @Class = "nav-link" })
+                    </li>
+                }
+            </ul>
+
+        </div>
+
+
+
+
+    </nav>
+
+
+
+    <div class="container-fluid body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

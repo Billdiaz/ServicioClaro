@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ServiciosClaroModelStoreContainer" CdmEntityContainer="ServiciosClaroEntities">
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="ServiciosClaroModel.Clientes">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Cuenta" ColumnName="Cuenta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cuentas">
+      <EntityTypeMapping TypeName="ServiciosClaroModel.Cuentas">
+        <MappingFragment StoreEntitySet="Cuentas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleados">
+      <EntityTypeMapping TypeName="ServiciosClaroModel.Empleados">
+        <MappingFragment StoreEntitySet="Empleados">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="FechaContratacion" ColumnName="FechaContratacion" />
+          <ScalarProperty Name="Cuenta" ColumnName="Cuenta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Puestos">
+      <EntityTypeMapping TypeName="ServiciosClaroModel.Puestos">
+        <MappingFragment StoreEntitySet="Puestos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RolCuentas">
+      <EntityTypeMapping TypeName="ServiciosClaroModel.RolCuentas">
+        <MappingFragment StoreEntitySet="RolCuentas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Cuenta" ColumnName="Cuenta" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="ServiciosClaroModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RolName" ColumnName="RolName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos">
+      <EntityTypeMapping TypeName="ServiciosClaroModel.Productos">
+        <MappingFragment StoreEntitySet="Productos">
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Producto" ColumnName="Producto" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recargas">
+      <EntityTypeMapping TypeName="ServiciosClaroModel.Recargas">
+        <MappingFragment StoreEntitySet="Recargas">
+          <ScalarProperty Name="Tarea" ColumnName="Tarea" />
+          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Lugar" ColumnName="Lugar" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tareas">
+      <EntityTypeMapping TypeName="ServiciosClaroModel.Tareas">
+        <MappingFragment StoreEntitySet="Tareas">
+          <ScalarProperty Name="Detalles" ColumnName="Detalles" />
+          <ScalarProperty Name="Tarea" ColumnName="Tarea" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TareasEmpleados">
+      <EntityTypeMapping TypeName="ServiciosClaroModel.TareasEmpleados">
+        <MappingFragment StoreEntitySet="TareasEmpleados">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Empleado" ColumnName="Empleado" />
+          <ScalarProperty Name="Tarea" ColumnName="Tarea" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

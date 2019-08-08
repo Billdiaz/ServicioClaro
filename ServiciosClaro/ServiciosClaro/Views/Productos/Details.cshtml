@@ -1,0 +1,135 @@
+﻿@model ServiciosClaro.Productos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@*<h2>Details</h2>
+
+<div>
+    <h4>Productos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Producto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Producto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Imagen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Imagen)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Productos</h4>
+    <hr />
+
+
+    <div class="row">
+        <div class="col-5 imagen">
+            <img class="img" src="@Url.Action("MImagen", new { id = Model.Id})" alt="@Html.DisplayFor(model => model.Producto)" />
+        </div>
+        <div class="col-7">
+            <div>
+                <h2></h2>
+            </div>
+            <div>
+                <dl class="dl-horizontal">
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Producto)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Producto)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Descripcion)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Descripcion)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Precio)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Precio)
+                    </dd>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Cantidad)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Cantidad)
+                        </dd>
+                    }
+
+                    
+
+
+                </dl>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="row yu">
+    <p>
+        @Html.ActionLink("Volver", "Index", null, new { @Class = "badge badge-danger", @Id = "Volver" }) 
+
+        |
+        
+        @if (User.IsInRole("Admin"))
+        {
+            @Html.ActionLink("Editar", "Edit", new { id = Model.Id}, new { @Class = "badge badge-primary", @Id = "Volver" })
+        }
+    </p>
+</div>

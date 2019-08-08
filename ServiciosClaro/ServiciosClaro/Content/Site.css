@@ -1,0 +1,98 @@
+﻿body {
+    font-family: 'Titillium Web', sans-serif;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+#linku{
+    font-size: 14pt;
+    margin: 10px;
+}
+
+@media (min-width: 768px) {
+  .dl-horizontal dt {
+    float: left;
+    width: 160px;
+    clear: left;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .dl-horizontal dd {
+    margin-left: 180px;
+  }
+}
+
+...
+
+.dl-horizontal dd:before,
+.dl-horizontal dd:after, {
+  display: table;
+  content: " ";
+}
+
+...
+
+.dl-horizontal dd:after {
+  clear: both;
+}
+
+.producto{
+    text-align: center;
+    padding: 10px;
+    border: 2px dashed #343a40;
+    float: left;
+    margin: 15px;
+}
+
+#producto{
+    padding: 0px;
+    width: 30%;
+}
+
+.titulo{
+    padding: 10px;
+    margin: 5px;
+}
+
+.precio{
+    font-size: 14pt;
+    color: crimson;
+}
+.imagen img{
+    width: 95%;
+    height: auto;
+    padding: 10px;
+}
+
+.info{
+    padding-bottom: 10px;
+}
+
+#Volver{
+    font-size: 20pt;
+    margin: 15px;
+}
+
+.yu{
+    margin: 30px;
+}

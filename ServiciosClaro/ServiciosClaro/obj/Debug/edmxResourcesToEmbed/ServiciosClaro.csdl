@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ServiciosClaroModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cuenta" Type="Int32" />
+    <NavigationProperty Name="Cuentas" Relationship="Self.FK__Clientes__Cuenta__30F848ED" FromRole="Clientes" ToRole="Cuentas" />
+    <NavigationProperty Name="Recargas" Relationship="ServiciosClaroModel.FK__Recargas__Client__4BAC3F29" FromRole="Clientes" ToRole="Recargas" />
+  </EntityType>
+  <EntityType Name="Cuentas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK__Clientes__Cuenta__30F848ED" FromRole="Cuentas" ToRole="Clientes" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK__Empleados__Cuent__2E1BDC42" FromRole="Cuentas" ToRole="Empleados" />
+    <NavigationProperty Name="RolCuentas" Relationship="Self.FK__RolCuenta__Cuent__276EDEB3" FromRole="Cuentas" ToRole="RolCuentas" />
+  </EntityType>
+  <EntityType Name="Empleados">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Puesto" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cedula" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FechaContratacion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Cuenta" Type="Int32" />
+    <NavigationProperty Name="Cuentas" Relationship="Self.FK__Empleados__Cuent__2E1BDC42" FromRole="Empleados" ToRole="Cuentas" />
+    <NavigationProperty Name="Puestos" Relationship="Self.FK__Empleados__Puest__2D27B809" FromRole="Empleados" ToRole="Puestos" />
+    <NavigationProperty Name="TareasEmpleados" Relationship="ServiciosClaroModel.FK__TareasEmp__Emple__47DBAE45" FromRole="Empleados" ToRole="TareasEmpleados" />
+  </EntityType>
+  <EntityType Name="Puestos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Empleados" Relationship="Self.FK__Empleados__Puest__2D27B809" FromRole="Puestos" ToRole="Empleados" />
+  </EntityType>
+  <EntityType Name="RolCuentas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cuenta" Type="Int32" Nullable="false" />
+    <Property Name="Rol" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cuentas" Relationship="Self.FK__RolCuenta__Cuent__276EDEB3" FromRole="RolCuentas" ToRole="Cuentas" />
+    <NavigationProperty Name="Roles" Relationship="Self.FK__RolCuentas__Rol__286302EC" FromRole="RolCuentas" ToRole="Roles" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RolName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="RolCuentas" Relationship="Self.FK__RolCuentas__Rol__286302EC" FromRole="Roles" ToRole="RolCuentas" />
+  </EntityType>
+  <Association Name="FK__Clientes__Cuenta__30F848ED">
+    <End Role="Cuentas" Type="Self.Cuentas" Multiplicity="0..1" />
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cuentas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clientes">
+        <PropertyRef Name="Cuenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Empleados__Cuent__2E1BDC42">
+    <End Role="Cuentas" Type="Self.Cuentas" Multiplicity="0..1" />
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cuentas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="Cuenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RolCuenta__Cuent__276EDEB3">
+    <End Role="Cuentas" Type="Self.Cuentas" Multiplicity="1" />
+    <End Role="RolCuentas" Type="Self.RolCuentas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cuentas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolCuentas">
+        <PropertyRef Name="Cuenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Empleados__Puest__2D27B809">
+    <End Role="Puestos" Type="Self.Puestos" Multiplicity="0..1" />
+    <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puestos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Empleados">
+        <PropertyRef Name="Puesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RolCuentas__Rol__286302EC">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="RolCuentas" Type="Self.RolCuentas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RolCuentas">
+        <PropertyRef Name="Rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ServiciosClaroEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+    <EntitySet Name="Cuentas" EntityType="Self.Cuentas" />
+    <EntitySet Name="Empleados" EntityType="Self.Empleados" />
+    <EntitySet Name="Puestos" EntityType="Self.Puestos" />
+    <EntitySet Name="RolCuentas" EntityType="Self.RolCuentas" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" />
+    <AssociationSet Name="FK__Clientes__Cuenta__30F848ED" Association="Self.FK__Clientes__Cuenta__30F848ED">
+      <End Role="Cuentas" EntitySet="Cuentas" />
+      <End Role="Clientes" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Empleados__Cuent__2E1BDC42" Association="Self.FK__Empleados__Cuent__2E1BDC42">
+      <End Role="Cuentas" EntitySet="Cuentas" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RolCuenta__Cuent__276EDEB3" Association="Self.FK__RolCuenta__Cuent__276EDEB3">
+      <End Role="Cuentas" EntitySet="Cuentas" />
+      <End Role="RolCuentas" EntitySet="RolCuentas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Empleados__Puest__2D27B809" Association="Self.FK__Empleados__Puest__2D27B809">
+      <End Role="Puestos" EntitySet="Puestos" />
+      <End Role="Empleados" EntitySet="Empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RolCuentas__Rol__286302EC" Association="Self.FK__RolCuentas__Rol__286302EC">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="RolCuentas" EntitySet="RolCuentas" />
+    </AssociationSet>
+    <EntitySet Name="Productos" EntityType="ServiciosClaroModel.Productos" />
+    <EntitySet Name="Recargas" EntityType="ServiciosClaroModel.Recargas" />
+    <EntitySet Name="Tareas" EntityType="ServiciosClaroModel.Tareas" />
+    <EntitySet Name="TareasEmpleados" EntityType="ServiciosClaroModel.TareasEmpleados" />
+    <AssociationSet Name="FK__Recargas__Client__4BAC3F29" Association="ServiciosClaroModel.FK__Recargas__Client__4BAC3F29">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Recargas" EntitySet="Recargas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TareasEmp__Emple__47DBAE45" Association="ServiciosClaroModel.FK__TareasEmp__Emple__47DBAE45">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="TareasEmpleados" EntitySet="TareasEmpleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Recargas__Tarea__4CA06362" Association="ServiciosClaroModel.FK__Recargas__Tarea__4CA06362">
+      <End Role="Tareas" EntitySet="Tareas" />
+      <End Role="Recargas" EntitySet="Recargas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TareasEmp__Tarea__46E78A0C" Association="ServiciosClaroModel.FK__TareasEmp__Tarea__46E78A0C">
+      <End Role="Tareas" EntitySet="Tareas" />
+      <End Role="TareasEmpleados" EntitySet="TareasEmpleados" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Producto" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="Precio" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Recargas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Lugar" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Precio" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Celular" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Cliente" Type="Int32" />
+    <Property Name="Tarea" Type="Int32" />
+    <NavigationProperty Name="Clientes" Relationship="ServiciosClaroModel.FK__Recargas__Client__4BAC3F29" FromRole="Recargas" ToRole="Clientes" />
+    <NavigationProperty Name="Tareas" Relationship="ServiciosClaroModel.FK__Recargas__Tarea__4CA06362" FromRole="Recargas" ToRole="Tareas" />
+  </EntityType>
+  <EntityType Name="Tareas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tarea" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Detalles" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Recargas" Relationship="ServiciosClaroModel.FK__Recargas__Tarea__4CA06362" FromRole="Tareas" ToRole="Recargas" />
+    <NavigationProperty Name="TareasEmpleados" Relationship="ServiciosClaroModel.FK__TareasEmp__Tarea__46E78A0C" FromRole="Tareas" ToRole="TareasEmpleados" />
+  </EntityType>
+  <EntityType Name="TareasEmpleados">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tarea" Type="Int32" />
+    <Property Name="Empleado" Type="Int32" />
+    <Property Name="Estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Empleados" Relationship="ServiciosClaroModel.FK__TareasEmp__Emple__47DBAE45" FromRole="TareasEmpleados" ToRole="Empleados" />
+    <NavigationProperty Name="Tareas" Relationship="ServiciosClaroModel.FK__TareasEmp__Tarea__46E78A0C" FromRole="TareasEmpleados" ToRole="Tareas" />
+  </EntityType>
+  <Association Name="FK__Recargas__Client__4BAC3F29">
+    <End Type="ServiciosClaroModel.Clientes" Role="Clientes" Multiplicity="0..1" />
+    <End Type="ServiciosClaroModel.Recargas" Role="Recargas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Recargas">
+        <PropertyRef Name="Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TareasEmp__Emple__47DBAE45">
+    <End Type="ServiciosClaroModel.Empleados" Role="Empleados" Multiplicity="0..1" />
+    <End Type="ServiciosClaroModel.TareasEmpleados" Role="TareasEmpleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TareasEmpleados">
+        <PropertyRef Name="Empleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Recargas__Tarea__4CA06362">
+    <End Type="ServiciosClaroModel.Tareas" Role="Tareas" Multiplicity="0..1" />
+    <End Type="ServiciosClaroModel.Recargas" Role="Recargas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tareas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Recargas">
+        <PropertyRef Name="Tarea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TareasEmp__Tarea__46E78A0C">
+    <End Type="ServiciosClaroModel.Tareas" Role="Tareas" Multiplicity="0..1" />
+    <End Type="ServiciosClaroModel.TareasEmpleados" Role="TareasEmpleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tareas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TareasEmpleados">
+        <PropertyRef Name="Tarea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
