@@ -93,7 +93,7 @@
     <Property Name="Empleado" Type="int" />
     <Property Name="Estado" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <Association Name="FK__Clientes__Cuenta__30F848ED">
+  <Association Name="FK__Clientes__Cuenta__44FF419A">
     <End Role="Cuentas" Type="Self.Cuentas" Multiplicity="0..1" />
     <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
     <ReferentialConstraint>
@@ -129,7 +129,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Recargas__Client__4BAC3F29">
+  <Association Name="FK__Recargas__Client__5070F446">
     <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
     <End Role="Recargas" Type="Self.Recargas" Multiplicity="*" />
     <ReferentialConstraint>
@@ -141,7 +141,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Recargas__Tarea__4CA06362">
+  <Association Name="FK__Recargas__Tarea__5165187F">
     <End Role="Tareas" Type="Self.Tareas" Multiplicity="0..1" />
     <End Role="Recargas" Type="Self.Recargas" Multiplicity="*" />
     <ReferentialConstraint>
@@ -153,7 +153,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RolCuenta__Cuent__276EDEB3">
+  <Association Name="FK__RolCuenta__Cuent__3B75D760">
     <End Role="Cuentas" Type="Self.Cuentas" Multiplicity="1" />
     <End Role="RolCuentas" Type="Self.RolCuentas" Multiplicity="*" />
     <ReferentialConstraint>
@@ -177,7 +177,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TareasEmp__Emple__47DBAE45">
+  <Association Name="FK__TareasEmp__Emple__4CA06362">
     <End Role="Empleados" Type="Self.Empleados" Multiplicity="0..1" />
     <End Role="TareasEmpleados" Type="Self.TareasEmpleados" Multiplicity="*" />
     <ReferentialConstraint>
@@ -189,7 +189,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TareasEmp__Tarea__46E78A0C">
+  <Association Name="FK__TareasEmp__Tarea__4BAC3F29">
     <End Role="Tareas" Type="Self.Tareas" Multiplicity="0..1" />
     <End Role="TareasEmpleados" Type="Self.TareasEmpleados" Multiplicity="*" />
     <ReferentialConstraint>
@@ -212,7 +212,7 @@
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tareas" EntityType="Self.Tareas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TareasEmpleados" EntityType="Self.TareasEmpleados" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Clientes__Cuenta__30F848ED" Association="Self.FK__Clientes__Cuenta__30F848ED">
+    <AssociationSet Name="FK__Clientes__Cuenta__44FF419A" Association="Self.FK__Clientes__Cuenta__44FF419A">
       <End Role="Cuentas" EntitySet="Cuentas" />
       <End Role="Clientes" EntitySet="Clientes" />
     </AssociationSet>
@@ -224,15 +224,15 @@
       <End Role="Puestos" EntitySet="Puestos" />
       <End Role="Empleados" EntitySet="Empleados" />
     </AssociationSet>
-    <AssociationSet Name="FK__Recargas__Client__4BAC3F29" Association="Self.FK__Recargas__Client__4BAC3F29">
+    <AssociationSet Name="FK__Recargas__Client__5070F446" Association="Self.FK__Recargas__Client__5070F446">
       <End Role="Clientes" EntitySet="Clientes" />
       <End Role="Recargas" EntitySet="Recargas" />
     </AssociationSet>
-    <AssociationSet Name="FK__Recargas__Tarea__4CA06362" Association="Self.FK__Recargas__Tarea__4CA06362">
+    <AssociationSet Name="FK__Recargas__Tarea__5165187F" Association="Self.FK__Recargas__Tarea__5165187F">
       <End Role="Tareas" EntitySet="Tareas" />
       <End Role="Recargas" EntitySet="Recargas" />
     </AssociationSet>
-    <AssociationSet Name="FK__RolCuenta__Cuent__276EDEB3" Association="Self.FK__RolCuenta__Cuent__276EDEB3">
+    <AssociationSet Name="FK__RolCuenta__Cuent__3B75D760" Association="Self.FK__RolCuenta__Cuent__3B75D760">
       <End Role="Cuentas" EntitySet="Cuentas" />
       <End Role="RolCuentas" EntitySet="RolCuentas" />
     </AssociationSet>
@@ -240,11 +240,11 @@
       <End Role="Roles" EntitySet="Roles" />
       <End Role="RolCuentas" EntitySet="RolCuentas" />
     </AssociationSet>
-    <AssociationSet Name="FK__TareasEmp__Emple__47DBAE45" Association="Self.FK__TareasEmp__Emple__47DBAE45">
+    <AssociationSet Name="FK__TareasEmp__Emple__4CA06362" Association="Self.FK__TareasEmp__Emple__4CA06362">
       <End Role="Empleados" EntitySet="Empleados" />
       <End Role="TareasEmpleados" EntitySet="TareasEmpleados" />
     </AssociationSet>
-    <AssociationSet Name="FK__TareasEmp__Tarea__46E78A0C" Association="Self.FK__TareasEmp__Tarea__46E78A0C">
+    <AssociationSet Name="FK__TareasEmp__Tarea__4BAC3F29" Association="Self.FK__TareasEmp__Tarea__4BAC3F29">
       <End Role="Tareas" EntitySet="Tareas" />
       <End Role="TareasEmpleados" EntitySet="TareasEmpleados" />
     </AssociationSet>
