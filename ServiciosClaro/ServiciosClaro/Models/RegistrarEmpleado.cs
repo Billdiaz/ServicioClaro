@@ -53,6 +53,10 @@ namespace ServiciosClaro.Models
         [Display(Name = "Fecha de Contratacion")]
         public DateTime FechaContratacion { get; set; }
 
+        [Display(Name = "Estado")]
+        [StringLength(15)]
+        public string Estado { get; set; }
+
 
         public virtual Puestos Puestos { get; set; }
     }

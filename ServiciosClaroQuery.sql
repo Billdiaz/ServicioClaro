@@ -47,6 +47,8 @@ FechaContratacion date not null,
 Cuenta int references Cuentas(Id)
 )
 
+alter table Empleados add Estado varchar(15) check(Estado in('Trabajando', 'Receso')) Default 'Trabajando'
+
 go
 
 create table Clientes(
@@ -85,7 +87,7 @@ Tarea int references Tareas(Id),
 Empleado int references Empleados(Id),
 Estado varchar(50) check (Estado in('Terminada', 'En Espera')) not null
 )
-
+select * from TareasEmpleados
 go
 
 create table Recargas(
@@ -128,8 +130,8 @@ select * from Puestos
 
 go
 
-insert into Empleados values ('Marcos Restituyo', '(809) 616-9743', 3, '20175534@itla.edu.do', '001-5426852-8', '2019-08-12', 1), 
-('Empleado Prueba', '(809) 727-0854', 1, 'empleadopueba@claro.com', '111-5555555-2', '2019-01-01', 2)
+insert into Empleados values ('Marcos Restituyo', '(809) 616-9743', 3, '20175534@itla.edu.do', '001-5426852-8', '2019-08-12', 1, 'Trabajando'), 
+('Empleado Prueba', '(809) 727-0854', 1, 'empleadopueba@claro.com', '111-5555555-2', '2019-01-01', 2, 'Trabajando')
 select * from Empleados
 
 go
@@ -145,5 +147,9 @@ select * from Productos
 
 go
 
-insert into Tareas values('Recarga','Descripcion Recarga'),('Soporte Tecnico','Descripcion Soporte Tecnico'), ('Servicio 3','Servicio 3 Recarga')
+insert into Tareas values('Recargas','Descripcion Recarga'),('Soporte Tecnico','Descripcion Soporte Tecnico'), ('Servicio 3','Servicio 3 Recarga')
 select * from Tareas
+
+go
+
+select * from Recargas

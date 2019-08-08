@@ -96,3 +96,15 @@ textarea {
 .yu{
     margin: 30px;
 }
+
+.tarea{
+    text-align: center;
+    padding: 10px;
+    float: left;
+    margin: 15px;
+}
+
+#tarea{
+    padding: 0px;
+    width: 30%;
+}

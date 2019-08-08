@@ -31,6 +31,7 @@
     <Property Name="Cedula" Type="varchar" MaxLength="15" Nullable="false" />
     <Property Name="FechaContratacion" Type="date" Nullable="false" />
     <Property Name="Cuenta" Type="int" />
+    <Property Name="Estado" Type="varchar" MaxLength="15" />
   </EntityType>
   <EntityType Name="Productos">
     <Key>
@@ -105,7 +106,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Empleados__Cuent__4222D4EF">
+  <Association Name="FK__Empleados__Cuent__2E1BDC42">
     <End Role="Cuentas" Type="Self.Cuentas" Multiplicity="0..1" />
     <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
     <ReferentialConstraint>
@@ -117,7 +118,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Empleados__Puest__412EB0B6">
+  <Association Name="FK__Empleados__Puest__2D27B809">
     <End Role="Puestos" Type="Self.Puestos" Multiplicity="0..1" />
     <End Role="Empleados" Type="Self.Empleados" Multiplicity="*" />
     <ReferentialConstraint>
@@ -165,7 +166,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RolCuentas__Rol__3C69FB99">
+  <Association Name="FK__RolCuentas__Rol__286302EC">
     <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
     <End Role="RolCuentas" Type="Self.RolCuentas" Multiplicity="*" />
     <ReferentialConstraint>
@@ -216,11 +217,11 @@
       <End Role="Cuentas" EntitySet="Cuentas" />
       <End Role="Clientes" EntitySet="Clientes" />
     </AssociationSet>
-    <AssociationSet Name="FK__Empleados__Cuent__4222D4EF" Association="Self.FK__Empleados__Cuent__4222D4EF">
+    <AssociationSet Name="FK__Empleados__Cuent__2E1BDC42" Association="Self.FK__Empleados__Cuent__2E1BDC42">
       <End Role="Cuentas" EntitySet="Cuentas" />
       <End Role="Empleados" EntitySet="Empleados" />
     </AssociationSet>
-    <AssociationSet Name="FK__Empleados__Puest__412EB0B6" Association="Self.FK__Empleados__Puest__412EB0B6">
+    <AssociationSet Name="FK__Empleados__Puest__2D27B809" Association="Self.FK__Empleados__Puest__2D27B809">
       <End Role="Puestos" EntitySet="Puestos" />
       <End Role="Empleados" EntitySet="Empleados" />
     </AssociationSet>
@@ -236,7 +237,7 @@
       <End Role="Cuentas" EntitySet="Cuentas" />
       <End Role="RolCuentas" EntitySet="RolCuentas" />
     </AssociationSet>
-    <AssociationSet Name="FK__RolCuentas__Rol__3C69FB99" Association="Self.FK__RolCuentas__Rol__3C69FB99">
+    <AssociationSet Name="FK__RolCuentas__Rol__286302EC" Association="Self.FK__RolCuentas__Rol__286302EC">
       <End Role="Roles" EntitySet="Roles" />
       <End Role="RolCuentas" EntitySet="RolCuentas" />
     </AssociationSet>

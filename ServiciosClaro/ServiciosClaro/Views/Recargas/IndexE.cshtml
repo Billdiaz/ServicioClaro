@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ServiciosClaro.Recargas>
+
+@{
+    ViewBag.Title = "Tareas";
+}
+
+<h2>Tareas asignadas</h2>
+
+<table class="table">
+    <thead class="bg-danger text-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Lugar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Celular)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clientes.Nombre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lugar)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Precio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Celular)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Clientes.Nombre)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", "TareasEmpleados", new { id = item.Id }, new { @Class = "badge badge-primary" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

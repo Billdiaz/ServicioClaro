@@ -28,6 +28,7 @@ namespace ServiciosClaro
         public string Cedula { get; set; }
         public System.DateTime FechaContratacion { get; set; }
         public Nullable<int> Cuenta { get; set; }
+        public string Estado { get; set; }
     
         public virtual Cuentas Cuentas { get; set; }
         public virtual Puestos Puestos { get; set; }

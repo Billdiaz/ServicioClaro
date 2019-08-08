@@ -63,23 +63,23 @@ namespace ServiciosClaro.Controllers
 
                         case "Empleado":
 
-                            //var ide = (from e in db.Empleados
-                            //           join u in db.Login on e.IDUsuario equals u.ID
-                            //           where u.Usuario == c.Usuario
-                            //           select e);
+                            var ide = (from e in db.Empleados
+                                       join u in db.Cuentas on e.Cuenta equals u.Id
+                                       where u.Usuario == c.Usuario
+                                       select e);
 
-                            //foreach (var item in ide)
-                            //{
-                            //    Session["ID"] = item.ID;
-                            //}
+                            foreach (var item in ide)
+                            {
+                                Session["ID"] = item.Id;
+                            }
 
-                            //return RedirectToAction("Index", "Equipos_Reparacion");
+                            return RedirectToAction("Index", "Home");
                             break;
 
                         case "Cliente":
 
                             var idc = (from cl in db.Clientes
-                                       join u in db.Cuentas on cl.Id equals u.Id
+                                       join u in db.Cuentas on cl.Cuenta equals u.Id
                                        where u.Usuario == c.Usuario
                                        select cl);
 

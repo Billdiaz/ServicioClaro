@@ -2,38 +2,57 @@
 
 @{
     ViewBag.Title = "Index";
+    
 }
 
-<h2>Index</h2>
+<h2>Servicios</h2>
+<hr />
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Tarea)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Detalles)
-        </th>
-        <th></th>
-    </tr>
+<div class="row">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tarea)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Detalles)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        var imagen = "../../Imagenes/Tareas/" + item.Id + ".jpg";
 
-</table>
+        <div class="tarea" id="tarea">
+            <div class="imagen">
+                <img src="@imagen" alt="Imagen" />
+            </div>
+            <div class="info">
+
+                <div>
+                    <h3>@Html.DisplayFor(modelItem => item.Tarea)</h3>
+                </div>
+                <div>
+                    <p>@Html.DisplayFor(modelItem => item.Detalles)</p>
+                </div>
+
+                @if (User.IsInRole("Cliente"))
+                {
+                    
+                    <div>
+                        @Html.ActionLink("Solicitar Servicio", "create", item.Tarea, null, new { @Class = "badge badge-danger", @Id = "Volver" })
+                    </div>
+                }
+
+                <div>
+                    <div>
+                        @if (User.IsInRole("Admin"))
+                        {
+
+                            @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @Class = "badge badge-primary" }) 
+                            <span>|</span>
+
+                        }
+
+                        @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @Class = "badge badge-success" })
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    }
+
+</div>

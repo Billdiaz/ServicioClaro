@@ -169,7 +169,9 @@
     <Compile Include="Controllers\EmpleadosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductosController.cs" />
+    <Compile Include="Controllers\RecargasController.cs" />
     <Compile Include="Controllers\TareasController.cs" />
+    <Compile Include="Controllers\TareasEmpleadosController.cs" />
     <Compile Include="Cuentas.cs">
       <DependentUpon>ServiciosClaro.tt</DependentUpon>
     </Compile>
@@ -233,6 +235,9 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Imagenes\Tareas\1.jpg" />
+    <Content Include="Imagenes\Tareas\2.jpg" />
+    <Content Include="Imagenes\Tareas\3.jpg" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -338,15 +343,20 @@
     <Content Include="Views\Productos\Details.cshtml" />
     <Content Include="Views\Productos\Edit.cshtml" />
     <Content Include="Views\Productos\Index.cshtml" />
-    <Content Include="Views\Tareas\Create.cshtml" />
-    <Content Include="Views\Tareas\Delete.cshtml" />
     <Content Include="Views\Tareas\Details.cshtml" />
     <Content Include="Views\Tareas\Edit.cshtml" />
     <Content Include="Views\Tareas\Index.cshtml" />
+    <Content Include="Views\Recargas\Create.cshtml" />
+    <Content Include="Views\Recargas\Delete.cshtml" />
+    <Content Include="Views\Recargas\Details.cshtml" />
+    <Content Include="Views\Recargas\Edit.cshtml" />
+    <Content Include="Views\Recargas\Index.cshtml" />
+    <Content Include="Views\Recargas\IndexC.cshtml" />
+    <Content Include="Views\Recargas\IndexE.cshtml" />
+    <Content Include="Views\TareasEmpleados\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Imagenes\Tareas\" />
     <Folder Include="Views\AsignacionEmpleado\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
