@@ -52,8 +52,8 @@ namespace ServiciosClaro
             using (var db = new ServiciosClaroEntities())
             {
                 var roles = (from r in db.Roles
-                             join rc in db.RolCuentas on r.Id equals rc.Id
-                             join c in db.Cuentas on rc.Id equals c.Id
+                             join rc in db.RolCuentas on r.Id equals rc.Rol
+                             join c in db.Cuentas on rc.Cuenta equals c.Id
                              where username == c.Usuario
                              select r.RolName).ToArray();
 
