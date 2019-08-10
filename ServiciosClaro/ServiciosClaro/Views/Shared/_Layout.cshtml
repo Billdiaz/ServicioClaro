@@ -29,17 +29,29 @@
                         @Html.ActionLink("Empleados", "Index", "Empleados", null, new { @Class = "nav-link" })
                     </li>
 
+                    <li class="nav-item active">
+                        @Html.ActionLink("Servicios", "Index", "Tareas", null, new { @Class = "nav-link" })
+                    </li>
+
                 }
 
                 else if (User.IsInRole("Cliente"))
                 {
 
+                    <li class="nav-item active">
+                        @Html.ActionLink("Servicios", "Index", "Tareas", null, new { @Class = "nav-link" })
+                    </li>
 
+                    <li class="nav-item active">
+                        @Html.ActionLink("Recargas", "IndexC", "Recargas", null, new { @Class = "nav-link" })
+                    </li>
                 }
 
                 else if (User.IsInRole("Empleado"))
                 {
-
+                    <li class="nav-item active">
+                        @Html.ActionLink("Tareas", "IndexE", "Recargas", null, new { @Class = "nav-link" })
+                    </li>
                 }
 
                 else
@@ -49,10 +61,6 @@
 
                 <li class="nav-item active">
                     @Html.ActionLink("Productos", "Index", "Productos", null, new { @Class = "nav-link" })
-                </li>
-
-                <li class="nav-item active">
-                    @Html.ActionLink("Servicios", "Index", "Tareas", null, new { @Class = "nav-link" })
                 </li>
 
                 <li class="nav-item active">

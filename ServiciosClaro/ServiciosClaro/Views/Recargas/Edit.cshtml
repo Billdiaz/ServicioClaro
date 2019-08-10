@@ -1,19 +1,21 @@
 ﻿@model ServiciosClaro.Recargas
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
 }
 
-<h2>Ágregar Recarga</h2>
+<h2>Editar Recarga</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
         <div class="form-group">
             @Html.LabelFor(model => model.Lugar, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -38,24 +40,13 @@
             </div>
         </div>
 
-        @if (!User.IsInRole("Cliente"))
-        {
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Cliente, "Cliente", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("Cliente", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.Cliente, "", new { @class = "text-danger" })
-                </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cliente, "Cliente", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Cliente", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Cliente, "", new { @class = "text-danger" })
             </div>
-
-                }
-                else
-                {
-                    int cliente = Convert.ToInt32(Session["ID"]);
-                    <input type="number" value="@cliente" class="hide" name="Cliente" id="Cliente" hidden />
-                }
-
+        </div>
 
         @*<div class="form-group">
             @Html.LabelFor(model => model.Tarea, "Tarea", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -65,11 +56,9 @@
             </div>
         </div>*@
 
-        <input type="number" value="1" class="hide form-control" name="Tarea" id="tarea" hidden />
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Agregar" class="btn btn-danger" />
+                <input type="submit" value="Guardar" class="btn btn-danger" />
             </div>
         </div>
     </div>

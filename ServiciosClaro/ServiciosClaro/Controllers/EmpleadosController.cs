@@ -81,7 +81,8 @@ namespace ServiciosClaro.Controllers
                     Email = e.Email,
                     Cedula = e.Cedula,
                     FechaContratacion = e.FechaContratacion,
-                    Cuenta = id
+                    Cuenta = id,
+                    Estado = e.Estado
                 });
 
                 db.RolCuentas.Add(new RolCuentas()
@@ -124,7 +125,7 @@ namespace ServiciosClaro.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nombre,Telefono,Puesto,Email,Cedula,FechaContratacion,Cuenta")] Empleados empleados)
+        public ActionResult Edit([Bind(Include = "Id,Nombre,Telefono,Puesto,Email,Cedula,FechaContratacion,Cuenta,Estado")] Empleados empleados)
         {
             if (ModelState.IsValid)
             {

@@ -39,6 +39,7 @@
     <NavigationProperty Name="Cuentas" Relationship="Self.FK__Empleados__Cuent__2E1BDC42" FromRole="Empleados" ToRole="Cuentas" />
     <NavigationProperty Name="Puestos" Relationship="Self.FK__Empleados__Puest__2D27B809" FromRole="Empleados" ToRole="Puestos" />
     <NavigationProperty Name="TareasEmpleados" Relationship="ServiciosClaroModel.FK__TareasEmp__Emple__47DBAE45" FromRole="Empleados" ToRole="TareasEmpleados" />
+    <Property Name="Estado" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Puestos">
     <Key>

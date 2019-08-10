@@ -186,6 +186,7 @@
     <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Controllers\RecargasController.cs" />
     <Compile Include="Controllers\TareasController.cs" />
+    <Compile Include="Controllers\TareasEmpleadosController.cs" />
     <Compile Include="Cuentas.cs">
       <DependentUpon>ServiciosClaro.tt</DependentUpon>
     </Compile>
@@ -248,9 +249,12 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Imagenes\Tareas\1.jpg" />
+    <Content Include="Imagenes\Tareas\2.jpg" />
+    <Content Include="Imagenes\Tareas\3.jpg" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -335,7 +339,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -357,31 +360,33 @@
     </Content>
     <Content Include="Views\Cuentas\Login.cshtml" />
     <Content Include="Views\Cuentas\Registrar.cshtml" />
-    <Content Include="Views\Empleados\Delete.cshtml" />
-    <Content Include="Views\Empleados\Details.cshtml" />
-    <Content Include="Views\Empleados\Edit.cshtml" />
-    <Content Include="Views\Empleados\Index.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
-    <Content Include="Views\Empleados\Create.cshtml" />
     <Content Include="Views\Productos\Create.cshtml" />
     <Content Include="Views\Productos\Delete.cshtml" />
     <Content Include="Views\Productos\Details.cshtml" />
     <Content Include="Views\Productos\Edit.cshtml" />
     <Content Include="Views\Productos\Index.cshtml" />
-    <Content Include="Views\Tareas\Create.cshtml" />
-    <Content Include="Views\Tareas\Delete.cshtml" />
+    <Content Include="Views\Recargas\Create.cshtml" />
+    <Content Include="Views\Recargas\Delete.cshtml" />
+    <Content Include="Views\Recargas\Details.cshtml" />
+    <Content Include="Views\Recargas\Edit.cshtml" />
+    <Content Include="Views\Recargas\Index.cshtml" />
+    <Content Include="Views\Recargas\IndexC.cshtml" />
+    <Content Include="Views\Recargas\IndexE.cshtml" />
+    <Content Include="Views\Empleados\Create.cshtml" />
+    <Content Include="Views\Empleados\Delete.cshtml" />
+    <Content Include="Views\Empleados\Details.cshtml" />
+    <Content Include="Views\Empleados\Edit.cshtml" />
+    <Content Include="Views\Empleados\Index.cshtml" />
     <Content Include="Views\Tareas\Details.cshtml" />
     <Content Include="Views\Tareas\Edit.cshtml" />
     <Content Include="Views\Tareas\Index.cshtml" />
-    <Content Include="Views\Recargas\Create.cshtml" />
-    <Content Include="Views\Recargas\Details.cshtml" />
+    <Content Include="Views\TareasEmpleados\Edit.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Imagenes\Tareas\" />
-    <Folder Include="Views\AsignacionEmpleado\" />
-    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
